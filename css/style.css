@@ -27,7 +27,8 @@ GLOBAL ATTRIBUTES
 	--color-dark-100: #000;
 	--color-dark-200: #121212;
 	--color-dark-300: #222326;
-	--color-dark-400: #777;
+	/* --color-dark-400: #777; */
+	--color-dark-400: #8F8F8F;
 	--color-dark-500: #eee;
 }
 
@@ -67,6 +68,7 @@ button {
 	width: 100%;
 	text-transform: uppercase;
 	margin: .3rem 0;
+	cursor: pointer;
 }
 
 button:hover {
@@ -130,6 +132,16 @@ nav > .container {
 	transform: scaleY(105%);
 	transform: translateX(200px);
 	opacity: 0;
+}
+
+.nav-links > li:nth-last-child(-n+2) a {
+	color: var(--color-light-200);
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+
+.nav-links > li:nth-last-child(-n+2) a:hover {
+	color: var(--color-accent);
 }
 
 .nav-links > li:nth-child(1) {
@@ -213,10 +225,6 @@ nav > .container {
 	font-weight: 700;
 	letter-spacing: 1px;
 	text-decoration: none;
-}
-
-.nav-link:nth-child(1) {
-	transition-delay: 100ms;
 }
 
 .nav-link:hover {
@@ -479,13 +487,15 @@ PLANS SECTION
 
 .plan main {
 	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+}
+
+.plan button {
+	width: 100%;
 }
 
 .plan-benefits {
 	align-self: start;
+	line-height: 1.4rem;
 	margin: .5rem 0;
 }
 
@@ -528,12 +538,8 @@ PAGE FOOTER
 *************************************************/
 #footer {
 	background-color: var(--color-dark-100);
-	padding: 2rem 0;
+	padding: 2.5rem 0;
 }
-
-/* #footer .container {
-	max-width: max-content;
-} */
 
 #footer .logo {
 	display: inline-block;
@@ -673,5 +679,249 @@ PAGE FOOTER
 
 	.plans {
 		margin-top: 3rem;
+	}
+
+	#footer .footer-menus {
+		display: flex;
+		gap: 8rem;
+	}
+
+	#footer .footer-menus > li + li {
+		margin: 0;
+	}
+	
+	#footer .footer-menu li {
+		margin-bottom: 1.5rem;
+	}
+
+	#footer footer {
+		font-size: .70rem;
+	}
+
+	#footer .copy-country {
+		text-align: right;
+		width: 25%;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+
+	.container {
+		max-width: 975px;
+	}
+
+	nav .container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 auto;
+	}
+
+	/* NAVBAR */
+	.nav-links {
+		position: static;
+		display: flex;
+		gap: 2rem;
+		width: max-content;
+		height: max-content;
+		max-width: 100vw;
+		background-color: unset;
+		padding: 0;
+		margin: 0;
+		transform: translateX(0);
+		transition: none;
+		opacity: 1;
+	}
+	
+	.nav-links > li {
+		z-index: 200000;
+		inset: 0;
+		position: static;
+		margin: 0;
+		transform: scaleY(0);
+		transform: translateX(0);
+		opacity: 1;
+	}
+	
+	.nav-links > li a {
+		font-size: .9rem;
+	}
+	
+	.nav-links > li:nth-last-child(-n+2) a {
+		font-size: .9rem;
+		font-weight: 700;
+	}
+
+	.nav-separator {
+		font-size: 1rem;
+		font-weight: 500;
+		padding: 0;
+		writing-mode: horizontal-tb;
+	}
+
+	.nav-links::after {
+		display: none;
+	}
+
+	.nav-links::before {
+		display: none;
+	}
+
+	.hamburger-button {
+		display: none;
+	}
+
+	nav {
+		height: 5rem;
+	}
+
+	.logo {
+		--custom-height: 2.5rem;
+	}
+
+	.benefit {
+		flex-basis: 320px;
+	}
+
+	#footer .logo {
+		--proportional-width: calc(var(--custom-height) * 5);
+	}
+	
+	#footer main {
+		display: flex;
+		gap: 2rem;
+		padding: 2rem 0;
+	}
+	
+	#footer .footer-menus {
+		gap: 2.5rem;
+		margin: 2rem 0 4rem;
+		width: 100%;
+	}
+	
+	#footer .social-media {
+		justify-self: flex-end;
+		margin-top: 2rem;
+	}
+	
+	#footer .sm-link {
+		width: 50px;
+		height: 50px;
+	}
+	
+	#footer footer {
+		position: relative;
+	}
+
+	#footer .disclaimer-links {
+		padding-top: 0;
+		line-height: 2.8rem;
+	}
+
+	#footer .copy-country {
+		font-size: .70rem;
+	}
+	
+	#footer .copy-country li + li {
+		line-height: 2.8rem;
+	}
+
+	#footer .copy-country a {
+		position: absolute;
+		right: 0;
+		top: -1rem;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.container {
+		max-width: 1170px;
+	}
+
+	#hero-section {
+		padding: 2.5rem 0;
+	}
+
+	#hero-section h1 {
+		margin-top: 2rem;
+	}
+
+	#benefits-section {
+		padding: 4rem 0;
+	}
+	
+	#benefits-section h2 {
+		font-size: 2.3rem;
+		font-weight: 700;
+		margin-bottom: 4rem;
+	}
+
+	.benefits {
+		margin-bottom: 4rem;
+	}
+
+	.benefit {
+		flex-basis: 0px;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.benefit .icon {
+		padding-bottom: 2rem;
+	}
+
+	.benefit i {
+		font-size: 4rem;
+		height: clamp(.5rem, 25vw, 140px);
+		width: clamp(.5rem, 25vw, 140px);
+		margin-right: 0
+	}
+
+	.benefit .caption {
+		text-align: center;
+	}
+
+	.benefit .caption h3 {
+		display: block;
+		font-size: 1.3rem;
+		font-weight: 600;
+		margin: 14px 0;
+	}
+
+	.plans {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+	}
+
+	.plan {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	.plan .badge {
+		padding: 0 8px;
+		font-size: .80rem;
+	}
+
+	.plan header {
+		min-height: 200px;
+	}
+
+	.plan header p {
+		line-height: 1.6rem;
+	}
+
+	.plan footer {
+		min-height: 200px;
+	}
+
+	#footer main {
+		gap: 4.5rem;
+	}
+
+	#footer .footer-menus {
+		gap: 4.5rem;
+		/* margin: 2rem 0 4rem; */
 	}
 }
